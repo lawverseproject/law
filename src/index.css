@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #070b12;
+  color: #e8edf5;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(212, 164, 78, 0.3);
+  color: #fbf6e9;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #070b12;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1d2c42, #162234);
+  border-radius: 10px;
+  border: 2px solid #070b12;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a06f2a, #7c5520);
+}
+
+/* Reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Architectural grid texture */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(212, 164, 78, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 164, 78, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-grid-fine {
+  background-image:
+    linear-gradient(rgba(212, 164, 78, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 164, 78, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glass surface */
+.glass {
+  background: linear-gradient(
+    145deg,
+    rgba(22, 34, 52, 0.55) 0%,
+    rgba(12, 19, 32, 0.65) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 164, 78, 0.14);
+}
+
+.glass-strong {
+  background: linear-gradient(
+    145deg,
+    rgba(29, 44, 66, 0.75) 0%,
+    rgba(15, 24, 40, 0.85) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 164, 78, 0.2);
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f6ead0 0%, #d4a44e 45%, #a06f2a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Gold hairline */
+.hairline-gold {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 164, 78, 0.5),
+    transparent
+  );
+}
+
+/* Premium button */
+.btn-gold {
+  position: relative;
+  background: linear-gradient(135deg, #e0bd72 0%, #c08a36 60%, #a06f2a 100%);
+  color: #0a0f17;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 0 1px rgba(212, 164, 78, 0.3),
+    0 8px 30px -8px rgba(192, 138, 54, 0.5);
+}
+.btn-gold:hover {
+  box-shadow: 0 0 0 1px rgba(212, 164, 78, 0.5),
+    0 12px 40px -8px rgba(192, 138, 54, 0.7);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(212, 164, 78, 0.25);
+  background: rgba(15, 24, 40, 0.4);
+  color: #e8edf5;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-ghost:hover {
+  border-color: rgba(212, 164, 78, 0.5);
+  background: rgba(29, 44, 66, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Scale beam transform origin */
+.beam-origin {
+  transform-origin: center top;
+}
+
+/* Floating navbar */
+.navbar-floating {
+  background: linear-gradient(
+    145deg,
+    rgba(15, 24, 40, 0.7) 0%,
+    rgba(10, 15, 23, 0.8) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 164, 78, 0.12);
+  box-shadow: 0 8px 32px -12px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(212, 164, 78, 0.04) inset;
+}
+
+.navbar-scrolled {
+  background: linear-gradient(
+    145deg,
+    rgba(10, 15, 23, 0.92) 0%,
+    rgba(7, 11, 18, 0.95) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 164, 78, 0.18);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(212, 164, 78, 0.06) inset;
+}
+
+/* Nav link hover underline */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4a44e, transparent);
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Vertical light beams */
+.light-beam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(212, 164, 78, 0.06),
+    rgba(212, 164, 78, 0.03),
+    transparent
+  );
+}
+
+/* Floating animation for auth cards */
+@keyframes floatSubtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-subtle {
+  animation: floatSubtle 8s ease-in-out infinite;
+}
+
+/* Gold particle */
+@keyframes particleDrift {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(-80px) translateX(10px); opacity: 0; }
+}
+.particle {
+  animation: particleDrift 8s ease-in-out infinite;
+}
+
+/* Page transition overlay */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.page-transition {
+  animation: fadeOut 0.6s ease-out forwards;
+}
+
+/* Input focus glow */
+.input-focus-glow:focus {
+  box-shadow: 0 0 0 3px rgba(212, 164, 78, 0.12),
+    0 0 20px -4px rgba(212, 164, 78, 0.15);
+}
+
+/* Validation message slide-in */
+@keyframes errorSlide {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.error-slide {
+  animation: errorSlide 0.3s ease-out forwards;
+}
+
+/* Arrow nudge on hover */
+.arrow-nudge {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .arrow-nudge,
+.btn-gold:hover .arrow-nudge {
+  transform: translateX(3px);
+}
