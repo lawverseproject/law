@@ -1,6 +1,6 @@
 import { ArrowRight, Play } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import BalanceScale from './BalanceScale';
+import JusticeScale3D from './JusticeScale3D';
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -94,12 +94,16 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Scale */}
+                {/* Interactive 3D Justice Scale */}
         <div
-          className="mt-12 animate-fade-up sm:mt-16"
+          className="relative mx-auto mt-10 h-[440px] w-full max-w-5xl animate-fade-up sm:mt-14 sm:h-[500px] lg:h-[540px]"
           style={{ animationDelay: '0.7s', opacity: 0 }}
         >
-          <BalanceScale />
+          <div className="absolute inset-0 rounded-[40px] bg-gold-400/[0.03] blur-3xl" />
+
+          <div className="relative h-full w-full">
+            <JusticeScale3D />
+          </div>
         </div>
       </div>
     </section>
